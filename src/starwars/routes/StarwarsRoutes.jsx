@@ -15,11 +15,11 @@ export const StarwarsRoutes = () => {
     <NavBar_sw />
     <div className='container'>
     <Routes>
-        <Route path='home' element={<Home/>}/>
+        <Route path='/home' element={<Home/>}/>
         <Route path="people" element={<PeoplesPage />}/>
         <Route path="planet" element ={<PlanetsPage/>}/>
         <Route path="vehicle" element ={<VehiclesPage/>}/>
-        {/*<Route path="/*" element ={<NotFoundPage/>}/>*/}
+        <Route path="/not-found" element ={<NotFoundPage/>}/>
  
         <Route path ="people/people/:name/:id" element={<PeoplePage/>}/>
         

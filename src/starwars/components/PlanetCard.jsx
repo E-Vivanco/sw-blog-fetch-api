@@ -27,7 +27,7 @@ export const PlanetCard = ({uid,
                       <div className='card-body'>
                           <h5 className='card-title'>{name}</h5>
                           <p className='card-text'>{description}</p>
-                      <Link to={`./planet/${name}/${uid}`}>
+                      <Link to={`./planets/${name}/${uid}`}>
                             Mas
                       </Link>
                       <div className='btn btn-secondary p-1'>

@@ -28,7 +28,7 @@ export const PeoplePage = () => {
       <img 
       src={`/assets/img/people/people-${id}_${name}.jpg`}
       alt={name}
-      className="img-thumbnail w-100"
+      className="img-thumbnail w-100 my-4"
       />
            
       </div>

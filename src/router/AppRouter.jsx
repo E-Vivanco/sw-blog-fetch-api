@@ -13,7 +13,7 @@ const AppRouter = () => {
   <React.StrictMode>
     <Routes>
       <Route path ="/home/*" element={<StarwarsRoutes />}/>
-      <Route path="/*" element ={<NotFoundPage/>}/>
+      <Route path="/not-found/*" element ={<NotFoundPage/>}/>
     </Routes>
     </React.StrictMode>
     </BrowserRouter> 

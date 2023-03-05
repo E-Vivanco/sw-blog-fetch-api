@@ -20,7 +20,7 @@ console.log("soy detalle de planet", detallepl);
       <img 
       src={`/assets/img/planets/planet-${id}_${name}.jpg`}
       alt={name}
-      className="img-thumbnail w-100"
+      className="img-thumbnail w-100 my-4"
       />
       </div>
       <div className="col-8 auto texto1">       
@@ -28,16 +28,16 @@ console.log("soy detalle de planet", detallepl);
        <div key={detallepl.name}>
        
       <table className="mx-5 my-4">
-          <h1 className="texto">{detallepl.name} </h1>
+          <h1 className="texto1">{detallepl.name} </h1>
           
-          <tr>Climate: {detallepl.climate}</tr>
-          <tr>Diameter: {detallepl.diameter}</tr>
-          <tr>Gravity: {detallepl.gravity}</tr>
-          <tr>Orbital Period: {detallepl.orbital_period}</tr>
-          <tr>Population: {detallepl.population}</tr>
-          <tr>Rotation Period: {detallepl.rotation_period}</tr>
-          <tr>Surface Water: {detallepl.surface_water}</tr>
-          <tr>Terrain: {detallepl.terrain}</tr>
+          <tr>Climate:<td>{detallepl.climate}</td> </tr>
+          <tr>Diameter:<td>{detallepl.diameter}</td> </tr>
+          <tr>Gravity:<td>{detallepl.gravity}</td> </tr>
+          <tr>Orbital Period:<td>{detallepl.orbital_period}</td> </tr>
+          <tr>Population:<td>{detallepl.population}</td> </tr>
+          <tr>Rotation Period:<td>{detallepl.rotation_period}</td> </tr>
+          <tr>Surface Water:<td> {detallepl.surface_water}</td></tr>
+          <tr>Terrain:<td>{detallepl.terrain}</td> </tr>
           
           </table>
           </div>
