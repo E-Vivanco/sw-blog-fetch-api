@@ -1,5 +1,5 @@
 import { useEffect, useContext,useState } from "react";
-import { Navigate, useParams } from "react-router-dom";
+import { Navigate, useParams,useNavigate } from "react-router-dom";
 import { Context } from "../store";
 //import { getParamSW } from "../helpers";
 
@@ -10,6 +10,10 @@ export const VehiclePage = () => {
   const {getVehicle}=actions
   getVehicle(id)
 console.log("soy detalle de vehicle", detallev);
+const navigate = useNavigate()
+  const volver=()=>{
+    navigate('/vehicle')
+  }
   
   return (
     <div className="container">
@@ -20,6 +24,7 @@ console.log("soy detalle de vehicle", detallev);
       alt={name}
       className="img-thumbnail w-100 my-4"
       />
+      <button className="btn btn-warning" onClick={volver}>Vehicles</button>
       </div>
       <div className="col-8 auto texto1">
         <div className="container tabla">
@@ -42,11 +47,10 @@ console.log("soy detalle de vehicle", detallev);
           </table>
        </div>
        </div>
-        
-        
-      </div>
+        </div>
     </div>
     </div>
+    
   )
 }
 

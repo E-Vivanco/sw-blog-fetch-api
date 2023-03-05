@@ -12,8 +12,8 @@ const AppRouter = () => {
   <BrowserRouter>
   <React.StrictMode>
     <Routes>
-      <Route path ="/home/*" element={<StarwarsRoutes />}/>
-      <Route path="/not-found/*" element ={<NotFoundPage/>}/>
+      <Route path ="*" element={<StarwarsRoutes />}/>
+      <Route path="/not-found" element ={<NotFoundPage/>}/>
     </Routes>
     </React.StrictMode>
     </BrowserRouter> 

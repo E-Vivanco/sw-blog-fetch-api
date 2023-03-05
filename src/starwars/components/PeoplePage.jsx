@@ -1,5 +1,5 @@
 import { useEffect, useContext,useState } from "react";
-import { Navigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Context } from "../store";
 
 
@@ -15,12 +15,10 @@ export const PeoplePage = () => {
   getPlanet(id)
   console.log("soy people", people);
   console.log("soy detalle -people",detallepep)
-  //let filtro1= ''
-  //let filtro2=[]
-  //filtro1=(detallepep.detallepepH)
- // console.log("soy f2",filtro1.split(''))
-  //filtro2.concat(filtro1)
- //console.log("soy f2",filtro2)
+  const navigate = useNavigate()
+  const volver=()=>{
+    navigate('/people')
+  }
   return (
     <div className="container ">
     <div className="row mt-5">
@@ -30,7 +28,7 @@ export const PeoplePage = () => {
       alt={name}
       className="img-thumbnail w-100 my-4"
       />
-           
+       <button className="btn btn-warning" onClick={volver}>Peoples</button>    
       </div>
       <div className="col-8 auto texto1">
         <div className="container tabla">

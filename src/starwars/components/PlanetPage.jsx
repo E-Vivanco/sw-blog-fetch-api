@@ -1,5 +1,5 @@
 import { useEffect, useContext,useState } from "react";
-import { Navigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Context } from "../store";
 //import { getParamSW } from "../helpers";
 
@@ -11,7 +11,10 @@ export const PlanetPage = () => {
   const {getPlanet}=actions
   getPlanet(id)
 console.log("soy detalle de planet", detallepl);
- 
+const navigate = useNavigate()
+const volver=()=>{
+  navigate('/planet')
+}
   
   return (
     <div className="container">
@@ -22,6 +25,7 @@ console.log("soy detalle de planet", detallepl);
       alt={name}
       className="img-thumbnail w-100 my-4"
       />
+      <button className="btn btn-warning" onClick={volver}>Planets</button>
       </div>
       <div className="col-8 auto texto1">       
       <div className="container tabla">

@@ -15,7 +15,7 @@ const { favoritos } = store;
         <>
         <nav className="navbar navbar-expand-sm navbar-dark bg-dark px-2 btn btn-dark">
             
-            <Link className= "navbar-brand" to="/home"><img className='logo' src={logo} alt="logo 1" /></Link>
+            <Link className= "navbar-brand" to="home"><img className='logo' src={logo} alt="logo 1" /></Link>
 
             <div className="navbar-collapse">
                 <div className="navbar-nav">
