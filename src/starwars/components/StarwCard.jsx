@@ -1,4 +1,5 @@
-import React from 'react';
+import React,{useContext,useState} from 'react';
+import {Context} from '../store';
 import { Link } from 'react-router-dom';
 
 export const StarwCard = ({uid,
@@ -7,16 +8,13 @@ url,
 description,
 id
 }) => {
-/*export const StarwCard= ({
-  people,characters,vehicle,vehicles,planet,planets,favoritos
-})=>{*/
+//const {store, actions}=useContext(Context)
 const starImgUrl =`/assets/img/people/people-${uid}_${name}.jpg`;
-const caracteristicas=()=>{
- // console.log("te envio a su descripcion")
-}
-const almacenar_favorito=()=>{
- // console.log("aqui guardo cada imagen clickeada")
-}
+const {store, actions}=useContext(Context)
+const[existe,setExiste] = useState(false)
+let {favoritos}=store
+const {almacenarFavorito}=actions
+
 return (
    <div className='container my-2 mt-4'>
     <div className='card'>
@@ -32,8 +30,8 @@ return (
                     Mas
               </Link>
               <div className='btn btn-secondary p-1'>
-              <i className="fa-sharp fa-solid fa-heart"
-                  onChange={almacenar_favorito()}></i>
+              <i className="fa-sharp fa-solid fa-heart" onClick={()=>{actions.almacenarFavorito(name)}}></i>
+                   {/* */}  
               </div>
               </div>
             </div>

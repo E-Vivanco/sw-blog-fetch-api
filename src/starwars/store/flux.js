@@ -80,7 +80,7 @@ const getState = ({ getStore, getActions, setStore }) => {
               },[])
          },
          almacenarFavorito:(name)=>{
-            const {favoritos}=getStore();
+            let {favoritos}=getStore();
             setStore({favoritos:[...favoritos,name]})
             console.log("Favoritos: ",getStore().favoritos)
          },

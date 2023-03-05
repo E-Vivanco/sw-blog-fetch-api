@@ -1,4 +1,5 @@
-import React from 'react';
+import React,{useContext} from 'react';
+import {Context} from '../store';
 import { Link } from 'react-router-dom';
 
 export const PlanetCard = ({uid,
@@ -9,12 +10,12 @@ export const PlanetCard = ({uid,
     }) => {
     
         const starImgUrl =`/assets/img/planets/planet-${uid}_${name}.jpg`;
-        const caracteristicas=()=>{
-          console.log("te envio a su descripcion")
-        }
-        const almacenar_favorito=()=>{
-        //  console.log("aqui guardo cada imagen clickeada")
-        }
+        const {store, actions}=useContext(Context)
+        const {detallepl}= store
+        let {favoritos} = store
+        const {almacenarFavorito}=actions
+  
+
         return (
            <div className='container my-1 mt-4'>
             <div className='card'>
@@ -30,8 +31,10 @@ export const PlanetCard = ({uid,
                             Mas
                       </Link>
                       <div className='btn btn-secondary p-1'>
+                      
                       <i className="fa-sharp fa-solid fa-heart"
-                          onChange={almacenar_favorito()}></i>
+                          onClick={()=>{actions.almacenarFavorito(name)}}></i>
+                      
                       </div>
                       </div>
                     </div>
@@ -40,7 +43,4 @@ export const PlanetCard = ({uid,
             </div>
           )
         }
-        
-
-
  

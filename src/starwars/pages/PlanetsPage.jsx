@@ -1,12 +1,13 @@
-import React from 'react'
-import { PlanetList } from '../components'
+import React,{useContext}from 'react'
+import { PlanetList } from '../components';
+import { Context } from '../store';
 //console.log("vehicle publicado es",publicado)
 export const PlanetsPage = () => {
-  
+  const{store,actions}=useContext(Context);
   
   return (
     <>
-    <PlanetList vehicle={"planet"}/>
+    <PlanetList vehicle={store.planets}/>
 
     </>
   )
