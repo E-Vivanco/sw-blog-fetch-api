@@ -1,7 +1,8 @@
 import React from 'react'
-import { injectContext, StarwarsRoutes } from '../starwars';
-import { Navigate, Route,Routes } from 'react-router-dom';
-import { StarHeader } from '../starwars';
+import { injectContext, NotFoundPage, PeoplesPage, StarwarsRoutes } from '../starwars';
+import { Route,Routes } from 'react-router-dom'
+//import { StarHeader} from '../starwars';
+//import {PeoplesPage } from '../starwars';
 import { BrowserRouter } from 'react-router-dom';
 
 const AppRouter = () => {
@@ -10,10 +11,9 @@ const AppRouter = () => {
     <>
   <BrowserRouter>
   <React.StrictMode>
-    <StarHeader />
     <Routes>
-    <Route path ="/*" element={<StarwarsRoutes />}/>
-        <Route path="/" element ={<Navigate to="/not-found"/>}/>
+      <Route path ="/home/*" element={<StarwarsRoutes />}/>
+      <Route path="/*" element ={<NotFoundPage/>}/>
     </Routes>
     </React.StrictMode>
     </BrowserRouter> 
