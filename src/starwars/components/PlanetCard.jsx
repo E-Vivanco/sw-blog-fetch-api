@@ -1,4 +1,4 @@
-import React,{useContext} from 'react';
+import React,{useContext,useState} from 'react';
 import {Context} from '../store';
 import { Link } from 'react-router-dom';
 
@@ -11,10 +11,21 @@ export const PlanetCard = ({uid,
     
         const starImgUrl =`/assets/img/planets/planet-${uid}_${name}.jpg`;
         const {store, actions}=useContext(Context)
-        const {detallepl}= store
-        let {favoritos} = store
-        const {almacenarFavorito}=actions
-  
+      //  const {detallepl}= store
+      //  let {favoritos} = store
+      //  const {almacenarFavorito}=actions
+        const[existe,setExiste] = useState(true)
+        //let {favoritos}=store
+        //const {almacenarFavorito}=actions
+        const misColores=[{backgroundColor:"white"},
+            {backgroundColor:"yellow"},
+            {backgroundColor:"red"}]
+        const validar=()=>{
+          setExiste(false)
+          {<i className={`fa-sharp fa-solid fa-heart`} onClick={actions.almacenarFavorito(name)}></i>}
+        
+        console.log("soy existe",existe)
+}
 
         return (
            <div className='container my-1 mt-4'>
@@ -30,12 +41,11 @@ export const PlanetCard = ({uid,
                       <Link to={`./planets/${name}/${uid}`}>
                             Mas
                       </Link>
-                      <div className='btn btn-secondary p-1'>
-                      
-                      <i className="fa-sharp fa-solid fa-heart"
-                          onClick={()=>{actions.almacenarFavorito(name)}}></i>
-                      
-                      </div>
+                      <div className='btn btn-secondary mx-3'>
+                         <i className={"fa-sharp fa-solid fa-heart" +(existe === false ? `${misColores[0]}` :'') }
+                         onClick={validar}
+                         ></i>                  
+                         </div>
                       </div>
                     </div>
                 </div>

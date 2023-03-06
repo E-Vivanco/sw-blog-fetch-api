@@ -11,10 +11,18 @@ id
 //const {store, actions}=useContext(Context)
 const starImgUrl =`/assets/img/people/people-${uid}_${name}.jpg`;
 const {store, actions}=useContext(Context)
-const[existe,setExiste] = useState(false)
-let {favoritos}=store
-const {almacenarFavorito}=actions
-
+const[existe,setExiste] = useState(true)
+//let {favoritos}=store
+//const {almacenarFavorito}=actions
+const misColores=[{backgroundColor:"white"},
+    {backgroundColor:"yellow"},
+    {backgroundColor:"red"}]
+const validar=()=>{
+  setExiste(false)
+  {<i className={`fa-sharp fa-solid fa-heart`} onClick={actions.almacenarFavorito(name)}></i>}
+  
+console.log("soy existe",existe)
+}
 return (
    <div className='container my-2 mt-4'>
     <div className='card'>
@@ -26,12 +34,15 @@ return (
               <div className='card-body'>
                   <h5 className='card-title'>{name}</h5>
                   <p className='card-text'>{description}</p>
+              <div className='d-flex'>
               <Link to={`./people/${name}/${uid}`}>
-                    Mas
+                   <strong>Detalles</strong>
               </Link>
-              <div className='btn btn-secondary p-1'>
-              <i className="fa-sharp fa-solid fa-heart" onClick={()=>{actions.almacenarFavorito(name)}}></i>
-                   {/* */}  
+              <div className='btn btn-secondary mx-3'>
+              <i className={"fa-sharp fa-solid fa-heart" +(existe === false ? `${misColores[0]}` :'') }
+              onClick={validar}
+              ></i>                  
+              </div>
               </div>
               </div>
             </div>

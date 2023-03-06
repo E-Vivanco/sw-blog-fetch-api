@@ -45,7 +45,7 @@ const { favoritos } = store;
                     favoritos.map(
                         (item, index) => {
                             return (
-                                <Dropdown.Item key={index} href="#/action-1">{item}  <FaTrash onClick={() => actions.removerFavorito(item)} /></Dropdown.Item>
+                                <Dropdown.Item key={index} href="#/action-1">{item}  <FaTrash  onClick={() => actions.removerFavorito(item)} /></Dropdown.Item>
                             )
                         }
                     )
