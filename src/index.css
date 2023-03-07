@@ -67,6 +67,10 @@ h2{
     width: 300px;
     height: 220px;
 }
+.card-img{
+    width: 165px;
+    height: 210px;
+}
 td{
     color: #a76112;
     margin-left: 50%;
@@ -76,6 +80,10 @@ tr{
 }
 .verde{
     background-color: rgb(48, 128, 48,.33);
+}
+.card-title{
+    font-size: 15px;
+    color: #000000d7;
 }
 root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;

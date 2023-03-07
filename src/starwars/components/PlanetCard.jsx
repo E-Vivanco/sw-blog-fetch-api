@@ -32,19 +32,21 @@ export const PlanetCard = ({uid,
             <div className='card'>
                 <div className='row g-2'>
                     <div className='col-6'>
-                        <img src={starImgUrl} className='card-img' alt={name} />
+                        <img src={starImgUrl} className='card-img my-1 mx-1' alt={name} />
                     </div>
                     <div className='col-6'>
                       <div className='card-body'>
-                          <h5 className='card-title'>{name}</h5>
+                      <h5 className='card-title mx-1'><strong>{name}</strong></h5>
                           <p className='card-text'>{description}</p>
+                          <div className='d-flex mx-1'>
                       <Link to={`./planets/${name}/${uid}`}>
-                            Mas
+                          <strong>Detalles</strong>
                       </Link>
                       <div className='btn btn-secondary mx-3'>
                          <i className={"fa-sharp fa-solid fa-heart" +(existe === false ? `${misColores[0]}` :'') }
                          onClick={validar}
                          ></i>                  
+                         </div>
                          </div>
                       </div>
                     </div>

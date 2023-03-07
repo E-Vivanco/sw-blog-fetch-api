@@ -24,17 +24,17 @@ const validar=()=>{
 console.log("soy existe",existe)
 }
 return (
-   <div className='container my-2 mt-4 px-5'>
+   <div className='container  mt-4 px-5 py-1'>
     <div className='card'>
         <div className='row g-3'>
             <div className='col-6'>
-                <img src={starImgUrl} className='card-img' alt={name} />
+                <img src={starImgUrl} className='card-img my-1 mx-1' alt={name} />
             </div>
             <div className='col-6'>
               <div className='card-body'>
-                  <h5 className='card-title'>{name}</h5>
+              <h5 className='card-title mx-1'><strong>{name}</strong></h5>
                   <p className='card-text'>{description}</p>
-              <div className='d-flex'>
+              <div className='d-flex mx-1'>
               <Link to={`./people/${name}/${uid}`}>
                    <strong>Detalles</strong>
               </Link>
