@@ -90,6 +90,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           setStore({
               favoritos: newFavoritos
           });
+          setExiste(true)
       }
 
       }

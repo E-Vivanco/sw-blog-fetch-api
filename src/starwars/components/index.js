@@ -9,3 +9,4 @@ export * from './PeoplePage';
 export * from './PlanetPage';
 export * from './StarwPage';
 export * from './VehiclePage';
+export * from './Footer';
