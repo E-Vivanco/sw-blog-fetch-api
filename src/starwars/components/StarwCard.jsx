@@ -6,23 +6,16 @@ export const StarwCard = ({uid,
 name,
 url,
 description,
-id
+id,
+existe,
+index1
 }) => {
-//const {store, actions}=useContext(Context)
+
 const starImgUrl =`/assets/img/people/people-${uid}_${name}.jpg`;
 const {store, actions}=useContext(Context)
-const[existe,setExiste] = useState(true)
-//let {favoritos}=store
-//const {almacenarFavorito}=actions
-const misColores=[{backgroundColor:"white"},
-    {backgroundColor:"yellow"},
-    {backgroundColor:"red"}]
-const validar=()=>{
-  setExiste(false)
-  {<i className={`fa-sharp fa-solid fa-heart`} onClick={actions.almacenarFavorito(name)}></i>}
-  
-console.log("soy existe",existe)
-}
+
+const {almacenarFavorito}=actions
+
 return (
    <div className='container  mt-4 px-5 py-1'>
     <div className='card'>
@@ -38,11 +31,12 @@ return (
               <Link to={`./people/${name}/${uid}`}>
                    <strong>Detalles</strong>
               </Link>
+              { existe ? '' :
               <div className='btn btn-secondary mx-3'>
-              <i className={"fa-sharp fa-solid fa-heart" +(existe === false ? `${misColores[0]}` :'') }
-              onClick={validar}
-              ></i>                  
+              <i className="fa-sharp fa-solid fa-heart"
+              onClick={()=>almacenarFavorito(name,index1)}></i>                  
               </div>
+              }
               </div>
               </div>
             </div>

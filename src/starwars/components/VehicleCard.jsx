@@ -6,26 +6,16 @@ export const VehicleCard = ({uid,
     name,
     url,
     description,
-    id
+    id,
+    existe,
+    index1
     }) => {
 
         const starImgUrl =`/assets/img/vehicles/vehicle-${uid}_${name}.jpg`;
           const {store, actions}=useContext(Context)
-         // let {favoritos} = store
-         // const {almacenarFavorito}=actions
-          const[existe,setExiste] = useState(true)
-          //let {favoritos}=store
-          //const {almacenarFavorito}=actions
-          const misColores=[{backgroundColor:"white"},
-              {backgroundColor:"yellow"},
-              {backgroundColor:"red"}]
-          const validar=()=>{
-            setExiste(false)
-            {<i className={`fa-sharp fa-solid fa-heart`} onClick={actions.almacenarFavorito(name)}></i>}
-
-          console.log("soy existe",existe)
-          }
-
+         
+          const {almacenarFavorito}=actions
+         
         return (
           <div className='container my-2 mt-4 px-5'>
             <div className='card'>
@@ -41,11 +31,12 @@ export const VehicleCard = ({uid,
                       <Link to={`./vehicle/${name}/${uid}`}>
                           <strong>Detalles</strong>
                       </Link>
-                      <div className='btn btn-secondary mx-3'>
-                       <i className={"fa-sharp fa-solid fa-heart" +(existe === false ? `${misColores[0]}` :'') }
-                       onClick={validar}
-                       ></i>                  
+                      { existe ? '' :
+                       <div className='btn btn-secondary mx-3'>
+                       <i className="fa-sharp fa-solid fa-heart"
+                       onClick={()=>almacenarFavorito(name,index1)}></i>                  
                        </div>
+                       }
                        </div>
                       </div>
                     </div>

@@ -13,18 +13,33 @@ const getState = ({ getStore, getActions, setStore }) => {
           favoritos: []
       },
       actions: {
-        getPeople:(url)=>{
-            fetch(url)
-            .then(data => data.json())
-           // console.log("peoples",people)
-            .then(lectura =>
-                setStore(
-                    {people: lectura}
-                ))
-            
-            .catch((e)=> console.log(e))
-
-         },
+        getPeople: async (url, options = {
+          method: 'GET',
+          headers: {
+              'Content-Type': 'application/json',
+          }
+      }) => {
+          try {
+              const response = await fetch(url, options);
+              if (response.status !== 200) {
+                  throw new Error({ message: 'Error fetching Characters.' })
+              }
+              const data = await response.json();
+              setStore({
+                  people: data
+              });
+              const {people}= getStore()
+              people.results.forEach(element=>{
+                element['existe']= false;
+              })
+              setStore({people:people})
+          } 
+          catch (error) {
+              setStore({
+                  error: error.message
+              });
+          }
+      },
           getCharacteristic: (id)=>{
             useEffect(()=>{
                 let urlPep = `https://www.swapi.tech/api/people/${id}`
@@ -35,18 +50,30 @@ const getState = ({ getStore, getActions, setStore }) => {
                 .catch((e)=>console.log(e))
               },[])
          },
-         getPlanets:(url)=>{
-            fetch(url)
-            .then(data => data.json())
-           // console.log("planetas",planets)  
-            .then(lectura =>
-                setStore(
-                    {planets: lectura}
-                ))
-             
-            .catch((e)=>console.log(e))
-
-         },
+         getPlanets: async (url, options = {
+          method: 'GET',
+          headers: {
+              'Content-Type': 'application/json',
+          }
+      }) => {
+          try {
+              const response = await fetch(url, options);
+              if (response.status !== 200) throw new Error("Error fetching Planet");
+              const data = await response.json();
+              setStore({
+                  planets: data
+              });
+              const {planets}= getStore()
+              planets.results.forEach(element=>{
+                element['existe']= false;
+              })
+              setStore({planets:planets})
+          } catch (error) {
+              setStore({
+                  error: error.message
+              })
+          }
+      },
         getPlanet: (id)=>{
             useEffect(()=>{
                 let urlPl = `https://www.swapi.tech/api/planets/${id}`
@@ -57,18 +84,30 @@ const getState = ({ getStore, getActions, setStore }) => {
                 .catch((e)=>console.log(e))
               },[])
          },
-         getVehicles:(url)=>{
-            fetch(url)
-            .then(data => data.json())
-          //  console.log("vehiculos",vehicles)
-            .then(lectura =>
-                setStore(
-                    {vehicles: lectura}
-                ))
-            
-            .catch((e)=>console.log(e))
-
-         },
+         getVehicles: async (url, options = {
+          method: 'GET',
+          headers: {
+              'Content-Type': 'application/json',
+          }
+      }) => {
+          try {
+              const response = await fetch(url, options);
+              if (response.status !== 200) throw new Error("Error fetching Vehicle");
+              const data = await response.json();
+              setStore({
+                  vehicles: data
+              })
+              const {vehicles}= getStore()
+              vehicles.results.forEach(element=>{
+                element['existe']= false;
+              })
+              setStore({vehicles:vehicles})
+          } catch (error) {
+              setStore({
+                  error: error.message
+              })
+          }
+      },
          getVehicle: (id)=>{
             useEffect(()=>{
                 let urlVeh = `https://www.swapi.tech/api/vehicles/${id}`
@@ -79,18 +118,24 @@ const getState = ({ getStore, getActions, setStore }) => {
                 .catch((e)=>console.log(e))
               },[])
          },
-         almacenarFavorito:(name)=>{
-            let {favoritos}=getStore();
-            setStore({favoritos:[...favoritos,name]})
+         almacenarFavorito:(name,index1)=>{
+            let {favoritos,people}=getStore();
+            people.results[index1].existe= true;
+            let favorito={
+              name: name,
+              index1: index1
+            }
+            setStore({favoritos:[...favoritos,favorito],people:people})
             console.log("Favoritos: ",getStore().favoritos)
          },
-         removerFavorito: (element) => {
-          let { favoritos } = getStore();
+         removerFavorito: (element,index1) => {
+          let { favoritos,people } = getStore();
+          people.results[index1].existe= false;
           let newFavoritos = favoritos.filter(item => item !== element);
           setStore({
-              favoritos: newFavoritos
+              favoritos: newFavoritos,people:people
           });
-          setExiste(true)
+          
       }
 
       }

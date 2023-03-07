@@ -43,9 +43,9 @@ const { favoritos } = store;
             <DropdownButton id="dropdown-basic-button" variant="outline-light" title={`Favoritos: ${favoritos.length}`}>
                 {
                     favoritos.map(
-                        (item, index) => {
+                        (item, index1) => {
                             return (
-                                <Dropdown.Item key={index} href="#/action-1">{item}  <FaTrash  onClick={() => actions.removerFavorito(item)} /></Dropdown.Item>
+                                <Dropdown.Item key={index1} href="#/action-1">{item.name}  <FaTrash  onClick={() => actions.removerFavorito(item,index1)} /></Dropdown.Item>
                             )
                         }
                     )
