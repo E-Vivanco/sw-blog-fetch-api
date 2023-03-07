@@ -16,7 +16,6 @@ const AppRouter = () => {
   <NavBar_sw/> 
     <Routes>
       <Route path ="/" element={<Home />}/>
-      {/*<Route path ="/home" element={<StarwarsRoutes />}/>*/}
       <Route path="people" element={<PeoplesPage />}/>
       <Route path="planet" element ={<PlanetsPage/>}/>
       <Route path="vehicle" element ={<VehiclesPage/>}/>

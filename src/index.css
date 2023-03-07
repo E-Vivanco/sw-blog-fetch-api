@@ -53,13 +53,19 @@ h2{
     justify-content: center;
 }
 .img2{
-    width: 1100px;
-    height: 900px;
+    width: 600px;
+    height: 600px;
+    align-items: center;
+    justify-content: center;
 }
 .container2{
     width: 600px;
     height: 590px;
 
+}
+.card{
+    width: 300px;
+    height: 220px;
 }
 td{
     color: #a76112;
