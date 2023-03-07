@@ -28,6 +28,7 @@ export const PlanetCard = ({uid,
 }
 
         return (
+          
           <div className='container my-2 mt-4 px-5'>
             <div className='card'>
                 <div className='row g-2'>

@@ -24,9 +24,11 @@ const navigate = useNavigate()
       alt={name}
       className="img-thumbnail w-100 my-4"
       />
-      <button className="btn btn-warning" onClick={volver}>Vehicles</button>
       </div>
       <div className="col-8 auto texto1">
+      <div className=" d-flex mx-2"><h1 className="texto2">Details of Vehicles</h1>
+          <button className="btn btn-warning mx-4" onClick={volver}>Peoples</button>  
+          </div>
         <div className="container tabla">
        <div key={detallev.name}>
        <table className="mx-5 my-4">

@@ -8,7 +8,7 @@ export const PlanetList = (...props) => {
    // const store2 =getStore(publicado);
     const { store, actions } = useContext(Context);
   return (
-    <div className='row rows-cols-1 row-cols-md-3 g-3'>
+    <div className='row rows-cols-1 row-cols-md-3 g-2'>
         {store.planets.results.map(stor =>(
             <PlanetCard
             key={stor.uid}

@@ -13,7 +13,7 @@ export const StarwList = (...props) => {
   //store.people.results.map()
   console.log("soy store people",store)
 return (
-    <div className='row rows-cols-1 row-cols-md-3 g-3'>
+    <div className='row rows-cols-1 row-cols-md-3 g-2'>
         {store.people.results.map(stor =>(
             <StarwCard
             key={stor.uid}
