@@ -10,11 +10,13 @@ export const VehicleCard = ({uid,
     existe,
     index1
     }) => {
-
+    //  let refvh = `https://www.swapi.tech/api/vehicles/${uid}`;
+     // let refvh2= refvh.split('^\.d').join("")
+     // console.log("esto contengo",refvh2)
         const starImgUrl =`/assets/img/vehicles/vehicle-${uid}_${name}.jpg`;
           const {store, actions}=useContext(Context)
-         
-          const {almacenarFavorito}=actions
+          const {vehicles,favoritos}=store
+          const {almacenarFavoritoVH}=actions
          
         return (
           <div className='container my-2 mt-4 px-5'>
@@ -31,10 +33,10 @@ export const VehicleCard = ({uid,
                       <Link to={`./vehicle/${name}/${uid}`}>
                           <strong>Detalles</strong>
                       </Link>
-                      { existe ? '' :
+                      {vehicles.results.existe  ? '' :
                        <div className='btn btn-secondary mx-3'>
                        <i className="fa-sharp fa-solid fa-heart"
-                       onClick={()=>almacenarFavorito(name,index1)}></i>                  
+                       onClick={()=>almacenarFavoritoVH(name,uid)}></i>                  
                        </div>
                        }
                        </div>

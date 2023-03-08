@@ -14,7 +14,7 @@ export const PlanetCard = ({uid,
         const starImgUrl =`/assets/img/planets/planet-${uid}_${name}.jpg`;
         const {store, actions}=useContext(Context)
       
-        const {almacenarFavorito}=actions
+        const {almacenarFavoritoPL}=actions
       
         return (
           <div className='container my-2 mt-4 px-5'>
@@ -34,7 +34,7 @@ export const PlanetCard = ({uid,
                       { existe ? '' :
                         <div className='btn btn-secondary mx-3'>
                         <i className="fa-sharp fa-solid fa-heart"
-                        onClick={()=>almacenarFavorito(name,index1)}></i>                  
+                        onClick={()=>almacenarFavoritoPL(name,uid)}></i>                  
                         </div>
                         }
                          </div>

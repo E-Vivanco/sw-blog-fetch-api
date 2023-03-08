@@ -14,7 +14,7 @@ index1
 const starImgUrl =`/assets/img/people/people-${uid}_${name}.jpg`;
 const {store, actions}=useContext(Context)
 
-const {almacenarFavorito}=actions
+const {almacenarFavoritoPP}=actions
 
 return (
    <div className='container  mt-4 px-5 py-1'>
@@ -34,7 +34,7 @@ return (
               { existe ? '' :
               <div className='btn btn-secondary mx-3'>
               <i className="fa-sharp fa-solid fa-heart"
-              onClick={()=>almacenarFavorito(name,index1)}></i>                  
+              onClick={()=>almacenarFavoritoPP(name,uid)}></i>                  
               </div>
               }
               </div>
