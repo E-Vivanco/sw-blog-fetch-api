@@ -13,7 +13,7 @@ index1
 
 const starImgUrl =`/assets/img/people/people-${uid}_${name}.jpg`;
 const {store, actions}=useContext(Context)
-
+const {people}=store
 const {almacenarFavoritoPP}=actions
 
 return (
@@ -34,7 +34,7 @@ return (
               { existe ? '' :
               <div className='btn btn-secondary mx-3'>
               <i className="fa-sharp fa-solid fa-heart"
-              onClick={()=>almacenarFavoritoPP(name,uid)}></i>                  
+              onClick={()=>almacenarFavoritoPP(people.results[index1].name,index1)}></i>                  
               </div>
               }
               </div>

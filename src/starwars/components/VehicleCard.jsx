@@ -33,10 +33,10 @@ export const VehicleCard = ({uid,
                       <Link to={`./vehicle/${name}/${uid}`}>
                           <strong>Detalles</strong>
                       </Link>
-                      {vehicles.results.existe  ? '' :
+                      {existe  ? '' :
                        <div className='btn btn-secondary mx-3'>
                        <i className="fa-sharp fa-solid fa-heart"
-                       onClick={()=>almacenarFavoritoVH(name,uid)}></i>                  
+                       onClick={()=>almacenarFavoritoVH(vehicles.results[index1].name,index1)}></i>                  
                        </div>
                        }
                        </div>

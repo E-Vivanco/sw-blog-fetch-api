@@ -15,7 +15,7 @@ const { favoritos } = store;
         <>
         <nav className="navbar navbar-expand-sm navbar-dark bg-dark px-2 btn btn-dark">
             
-            <Link className= "navbar-brand" to="home"><img className='logo' src={logo} alt="logo 1" /></Link>
+            <Link className= "navbar-brand" to="/"><img className='logo' src={logo} alt="logo 1" /></Link>
 
             <div className="navbar-collapse">
                 <div className="navbar-nav">
@@ -43,9 +43,9 @@ const { favoritos } = store;
             <DropdownButton id="dropdown-basic-button" variant="outline-light" title={`Favoritos: ${favoritos.length}`}>
                 {
                     favoritos.map(
-                        (item, index1) => {
+                        (item, index) => {
                             return (
-                                <Dropdown.Item key={index1} href="#/action-1">{item.name}  <FaTrash  onClick={() => actions.removerFavorito(item,index1)} /></Dropdown.Item>
+                                <Dropdown.Item key={index} href="#/action-1">{item.name}  <FaTrash  onClick={() => actions.removerFavorito(item,index)} /></Dropdown.Item>
                             )
                         }
                     )
