@@ -31,7 +31,7 @@ export const PlanetCard = ({ uid,
                 <Link to={`./planets/${name}/${uid}`}>
                   <strong>Detalles</strong>
                 </Link>
-                {planets.results[index1].existe ? '' :
+                {existe ? '' :
                   <div className='btn btn-secondary mx-3'>
                     <i className="fa-sharp fa-solid fa-heart"
                       onClick={() => almacenarFavoritoPL(planets.results[index1].name, index1)}></i>
